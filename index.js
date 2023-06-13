@@ -30,10 +30,11 @@ chat.on("message", function message(data) {
   let jsonData = JSON.parse(dataString);
   let jsonDataSub = JSON.parse(jsonData.data);
   let jsonSender = jsonDataSub.sender;
-
-  let message = new Date().toLocaleDateString('pl-PL') + 
+  
+  options.timeZone = "GMT+2";
+  let message = new Date().toLocaleDateString('pl-PL', options) + 
   " "  + 
-  new Date().toLocaleTimeString('pl-PL') + 
+  new Date().toLocaleTimeString('pl-PL', options) + 
   " " + 
   jsonSender?.username + 
   ": " + jsonDataSub.content
