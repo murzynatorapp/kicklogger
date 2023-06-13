@@ -31,11 +31,8 @@ chat.on("message", function message(data) {
   let jsonDataSub = JSON.parse(jsonData.data);
   let jsonSender = jsonDataSub.sender;
   
-  options.timeZone = "GMT+2";
-  let message = new Date().toLocaleDateString('pl-PL', options) + 
-  " "  + 
-  new Date().toLocaleTimeString('pl-PL', options) + 
-  " " + 
+  let message = jsonDataSub.created_at + 
+  " "  +  
   jsonSender?.username + 
   ": " + jsonDataSub.content
   fs.appendFile('adamcy-log.txt', message + '\r\n', function (err) {
