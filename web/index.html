@@ -68,7 +68,7 @@ iframe:focus {
     const txtframe = document.getElementById('txtframe');
 
     searchButton.addEventListener('click', () => {
-      const searchWord = searchInput.value + ":";
+      const searchWord = searchInput.value + ": ";
       const url = `/search?word=${encodeURIComponent(searchWord)}`;
       txtframe.src = url;
     });
