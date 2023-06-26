@@ -26,7 +26,6 @@ chat.on("open", function open() {
   });
 
 chat.on("message", function message(data) {
-  const options = { timeZone: "GMT", timeZoneName: "short" };
   let dataString = data.toString();
   let jsonData = JSON.parse(dataString);
   let jsonDataSub = JSON.parse(jsonData.data);
@@ -34,7 +33,7 @@ chat.on("message", function message(data) {
   
   let message = new Date().toLocaleDateString('pl-PL') + 
   " "  + 
-  new Date().toLocaleTimeString('pl-PL', options) + 
+  new Date().toLocaleTimeString('pl-PL') + 
   " #" + 
   jsonSender?.username + 
   ": " + jsonDataSub.content
