@@ -37,7 +37,7 @@ chat.on("message", function message(data) {
   " " + 
   jsonSender?.username + 
   ": " + jsonDataSub.content
-  fs.appendFile('adamcy-log.txt', message + '\r\n', function (err) {
+  fs.appendFile('/logs/adamcy-log.txt', message + '\r\n', function (err) {
     if (err) return console.log(err);
     console.log('successfully appended "' + message + '"');
     });
@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res) => {
   const searchWord = req.query.word.toLowerCase();
-  const filePath = 'adamcy-log.txt'; // Ścieżka do pliku tekstowego
+  const filePath = '/logs/adamcy-log.txt'; // Ścieżka do pliku tekstowego
 
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
